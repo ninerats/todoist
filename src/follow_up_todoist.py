@@ -6,7 +6,7 @@ import requests
 TODOIST_API_TOKEN = "2069791e69e4e6ec96b6a5e2bb71465db69b34fb"
 
 # Optional: specify a default project ID (None = Inbox)
-TODOIST_PROJECT_ID = "Life Admin"
+TODOIST_PROJECT_ID = "6VWM3frp978CJ2Cc"
 
 # === 1. Get the file path from the command line ===
 if len(sys.argv) < 2:
@@ -18,7 +18,7 @@ file_path = sys.argv[1]
 file_name = os.path.basename(file_path)
 
 # Create a file:// link for use in the task comment
-file_link = f"file:///{file_path.replace(' ', '%20')}"
+FILE_LINK = f"file:///{file_path.replace(' ', '%20')}"
 
 # === 2. Create the Todoist task ===
 headers = {
@@ -46,13 +46,14 @@ task_id = task_response.json()["id"]
 # === 3. Add a comment with the file link ===
 comment_data = {
     "task_id": task_id,
-    "content": f"[Open file]({file_link})"
+    "content": f"[Open file]({FILE_LINK})"
 }
 
 comment_response = requests.post(
     "https://api.todoist.com/rest/v2/comments",
     headers=headers,
-    json=comment_data
+    json=comment_data,
+    timeout=10
 )
 
 if comment_response.status_code not in (200, 204):
