@@ -3,10 +3,10 @@ import os
 import requests
 
 # === TODO: Replace with your personal Todoist API token ===
-TODOIST_API_TOKEN = "your_api_token_here"
+TODOIST_API_TOKEN = "2069791e69e4e6ec96b6a5e2bb71465db69b34fb"
 
 # Optional: specify a default project ID (None = Inbox)
-TODOIST_PROJECT_ID = None
+TODOIST_PROJECT_ID = "Life Admin"
 
 # === 1. Get the file path from the command line ===
 if len(sys.argv) < 2:
