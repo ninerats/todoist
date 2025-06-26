@@ -3,10 +3,10 @@ import os
 import requests
 
 # === TODO: Replace with your personal Todoist API token ===
-TODOIST_API_TOKEN = "2069791e69e4e6ec96b6a5e2bb71465db69b34fb"
+TODOIST_API_TOKEN = "your_api_token_here"
 
 # Optional: specify a default project ID (None = Inbox)
-TODOIST_PROJECT_ID = "Life Admin"
+TODOIST_PROJECT_ID = None
 
 # === 1. Get the file path from the command line ===
 if len(sys.argv) < 2:
@@ -55,4 +55,7 @@ comment_response = requests.post(
     json=comment_data
 )
 
-if comment_respon_
+if comment_response.status_code not in (200, 204):
+    print(f"⚠️ Task created, but failed to add comment: {comment_response.status_code} {comment_response.text}")
+else:
+    print(f"✅ Task created for '{file_name}' with file link.")
