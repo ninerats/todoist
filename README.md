@@ -1,70 +1,57 @@
-# Python Template
+# 📝 Follow-Up Todoist Utility
 
-Starter repo for Python projects with:
+This is a simple Python command-line script that lets you create follow-up tasks in [Todoist](https://todoist.com/) directly from a file path. It's designed to help you track files you need to revisit or act on later by creating a task with a direct link to the file.
 
-- `.venv`-based local environment
-- Runtime vs dev dependencies split
-- Pre-wired VS Code settings
-- Idempotent setup script (`init_project.ps1`)
+## 🚀 Features
 
----
+- Creates a Todoist task using the file's name as the task content.
+- Optionally adds the task to a specific project (default is the Inbox).
+- Attaches a comment to the task with a clickable `file://` link to open the file directly.
+- Designed to be used as a right-click context menu action or via shell command.
 
-## 🚀 How to Create a New Project from This Template
-
-### 🧱 Step 1: Clone your template repo
+## 🛠 Usage
 
 ```bash
-git clone https://github.com/ninerats/python-template.git my-new-project
-cd my-new-project
+python follow_up_todoist.py <path_to_file>
 ```
 
-Or manually copy the folder if not using GitHub.
-
----
-
-### 🧼 Step 2: Clean Git (if cloned)
-
-If you cloned the repo and want a fresh Git history:
-
+Example:
 ```bash
-rm -r .git -force
-git init
-git add .
-git commit -m "Initial commit from template"
+python follow_up_todoist.py "C:\Users\you\Documents\ImportantFile.docx"
 ```
 
----
+## ⚙️ Setup
 
-### ⚙️ Step 3: Initialize the environment
+1. **Get your Todoist API token**:
+   - Visit https://todoist.com/prefs/integrations to find your personal token.
+   - Replace the value of `TODOIST_API_TOKEN` in the script with your token.
 
-```powershell
-.\init_project.ps1
+2. **(Optional)** Set a default project ID:
+   - If you want all tasks to go into a specific project instead of the Inbox, set the `TODOIST_PROJECT_ID`.
+
+3. **File link support**:
+   - The comment added to the task will contain a `file://` URL for the selected file, making it easy to open.
+
+## 🔐 Security Warning
+
+Do **not** commit your Todoist API token to version control! This script is for personal use and should be stored securely.
+
+## ✅ Example Output
+
+```
+🚀 Script is running...
+✅ Task created for 'ImportantFile.docx' with file link.
 ```
 
-This sets up `.venv`, installs packages, and ensures `.gitignore` includes `.venv`.
+## 🧪 Notes
 
----
+- Requires `requests` Python package:
+  ```bash
+  pip install requests
+  ```
 
-### 🧪 Step 4: Start coding!
+- Ideal for use with file explorer shell integrations, custom keyboard shortcuts, or productivity automation tools.
 
-- Your entry point: `src/main.py`
-- Run or test via VS Code or command line
-- Add packages via `pip install packagename`
+## 📄 License
 
----
-
-### 📝 Step 5: Manage requirements
-
-If you add runtime packages:
-
-```bash
-pip freeze > requirements.txt
-```
-
-Or add them manually to `requirements.txt` and re-run:
-
-```bash
-pip install -r requirements.txt
-```
-
----
+MIT (or add your preferred license here)
