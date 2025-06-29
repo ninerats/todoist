@@ -3,5 +3,15 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+		"editor.formatOnSave": true,
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter"
+		},
+		"black-formatter.args": [
+			"--line-length=79"
+		]
+	}
 }

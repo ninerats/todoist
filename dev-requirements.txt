@@ -1,0 +1,12 @@
+# Development Packages
+# Last Updated: 2025-06-25
+
+black>=23.7.0,<24.0         # Code formatter: enforces consistent style
+isort>=5.12.0,<6.0          # Automatically sorts imports
+flake8>=6.1.0,<7.0          # Linter: enforces PEP8 and catches syntax/style issues
+pylint>=3.0.0,<4.0          # Static code analysis and linter
+jupyter>=1.0.0,<2.0         # CLI to manage and launch Jupyter notebooks
+notebook>=7.0.0,<8.0        # Classic Jupyter Notebook web UI
+ipykernel>=6.25.0,<7.0      # Kernel backend for running Python code in notebooks
+debugpy>=1.8.0,<2.0         # Debugger used by VS Code for Python
+pytest>=8.0.0,<9.0          # Testing framework
