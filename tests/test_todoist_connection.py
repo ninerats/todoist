@@ -13,9 +13,11 @@ Usage:
     pytest test_todoist_connection.py
 """
 
-from pytest import CaptureFixture
-import requests
 import logging
+
+import requests
+from pytest import CaptureFixture
+
 from shared.vault import get_token
 
 TODOIST_API_ROOT = "https://api.todoist.com/rest/v2"
