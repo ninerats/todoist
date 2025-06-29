@@ -4,10 +4,9 @@ import sys
 import os
 import requests
 
-print("🚀 Script is running...")
+from shared.vault import get_token
 
-# === TODO: Replace with your personal Todoist API token ===
-TODOIST_API_TOKEN = "2069791e69e4e6ec96b6a5e2bb71465db69b34fb"
+print("🚀 Script is running...")
 
 # Optional: specify a default project ID (None = Inbox)
 TODOIST_PROJECT_ID = "6VWM3frp978CJ2Cc"
@@ -25,7 +24,8 @@ file_name = os.path.basename(file_path)
 FILE_LINK = f"file:///{file_path.replace(' ', '%20')}"
 
 # === 2. Create the Todoist task ===
-headers = {"Authorization": f"Bearer {TODOIST_API_TOKEN}"}
+token = get_token("todoist")
+headers = {"Authorization": f"Bearer {token}"}
 
 task_data = {"content": f"Follow up on {file_name}"}
 if TODOIST_PROJECT_ID:
